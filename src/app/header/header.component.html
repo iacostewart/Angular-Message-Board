@@ -9,14 +9,17 @@
           <li><a href="" class="white-text gb-dar navbar-dark nav-link" routerLink="/">Home</a></li>
           <li><a href="" class="white-text bg-dark navbar-dark nav-link">Create</a></li>
         </ul>
-
+           
+      </div>
+      <div>
+        <p class="white-text" >{{nameToDisplay}}</p>
       </div>
       <!-- right side of navbar -->
       <div class="btn-group" role="group">
-        <button class="btn btn-lg btn-outline-primary" routerLink='/register'>Register</button>
-        <button class="btn btn-lg btn-outline-primary">Login</button>
-        <button class="btn btn-lg btn-outline-danger red-btn">Logout</button>
-      </div>
+          <button *ngIf="!nameToDisplay" type="button" class="btn btn-lg btn-outline-primary" routerLink="/register">Register</button>
+          <button *ngIf="!nameToDisplay" type="button" class="btn btn-lg btn-outline-primary" (click)="login()">Login</button>
+          <button *ngIf="nameToDisplay" type="button" class="btn btn-lg btn-outline-danger red-btn" (click)="logout()">Logout of {{nameToDisplay}}</button>
+        </div>
 
     </nav>
   </div>
